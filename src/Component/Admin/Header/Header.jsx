@@ -6,8 +6,11 @@ import { adminAuthActions } from "../../Store/adminAuthSlice";
 const Header = () => {
   const dispatch =useDispatch();
   const navigate =useNavigate();
+  
   const handleLogout = () => {
     dispatch(adminAuthActions.logout()); // 🔹 Redux se logout
+    localStorage.removeItem("adminToken"); // Specific key delete karein
+  localStorage.clear();
     navigate("/admin/login"); // 🔹 Redirect to Login Page
   };
 

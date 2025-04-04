@@ -58,6 +58,12 @@ const Authform = () => {
       localStorage.setItem("isLoggedIn", "true"); // Fixing refresh logout issue
 
       if (!isLogin) {
+        const sanitizedEmail = email.replace(/\./g, ",");
+        await fetch(`https://staymitra-c6ae4-default-rtdb.firebaseio.com/users/${sanitizedEmail}.json`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ role: "user" }), // Default Role: User
+        });
         alert("Account created successfully, Now Login to continue");
       }
 

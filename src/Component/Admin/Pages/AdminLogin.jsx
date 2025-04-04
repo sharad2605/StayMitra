@@ -32,10 +32,19 @@ const AdminLogin = () => {
       const data = await response.json();
 
       if (response.ok) {
-        dispatch(adminAuthActions.login(data.idToken)); // ✅ Save token in Redux
-        navigate("/admin/dashboard");
-        console.log("token:-", data.idToken);
-      } else {
+        const roleResponse = await fetch(
+          `https://staymitra-c6ae4-default-rtdb.firebaseio.com//users/${email.replace(/\./g, ",")}.json`
+        );
+        const roleData = await roleResponse.json();
+  
+        if (roleData && roleData.role === "admin") {
+          dispatch(adminAuthActions.login(data.idToken));
+          navigate("/admin/dashboard");
+          console.log("Admin Login Successful");
+        } else {
+          alert("You are not an admin!");
+        }
+      }    else {
         alert("Invalid credentials: " + data.error.message);
       }
     } catch (error) {
