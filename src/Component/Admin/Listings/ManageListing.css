@@ -1,0 +1,96 @@
+.container {
+    margin-top: 20px;
+  }
+  
+  .card {
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-header {
+    background-color: #007bff;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .table {
+    margin-top: 10px;
+  }
+  
+  th {
+    background-color: #f8f9fa;
+  }
+  
+  td {
+    vertical-align: middle;
+  }
+  
+  button {
+    font-size: 14px;
+    padding: 5px 10px;
+  }
+  
+  button.me-2 {
+    background-color: #ffc107;
+    border: none;
+  }
+  
+  button.me-2:hover {
+    background-color: #e0a800;
+  }
+  
+  button.btn-danger {
+    background-color: #dc3545;
+    border: none;
+  }
+  
+  button.btn-danger:hover {
+    background-color: #c82333;
+  }
+
+  .image-preview-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .image-wrapper {
+    position: relative;
+    width: 120px; /* Fixed width */
+    height: 120px; /* Fixed height */
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .preview-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures proper cropping */
+    border-radius: 8px;
+  }
+  
+  .delete-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: rgba(247, 245, 245, 0.9);
+    color: white;
+    border: none;
+    border-radius: 50%; /* ✅ Make it a perfect circle */
+    width: 22px; /* Adjust size */
+    height: 22px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+  
+  .delete-btn:hover {
+    background: red;
+  }
+  
+  

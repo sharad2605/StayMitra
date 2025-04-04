@@ -1,0 +1,49 @@
+.card {
+    background: #f8f9fa;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  .listing-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  .price-tag {
+    font-size: 18px;
+    font-weight: bold;
+    color: #d9534f;
+  }
+  .listing-image {
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+  
+  .price-tag {
+    font-size: 16px;
+    font-weight: bold;
+    color: red;
+  }
+  
+  .book-now-btn {
+    background: #ff5722;
+    color: white;
+    border: none;
+    padding: 10px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .book-now-btn:hover {
+    background: #e64a19;
+  }
+  

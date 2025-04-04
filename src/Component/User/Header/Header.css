@@ -1,0 +1,29 @@
+/* Navbar background gradient */
+.navbar {
+    background: linear-gradient(135deg, #3a8d99, #ad76d3); /* Soft teal to purple gradient */
+  }
+  
+  /* Search bar styling */
+  .search-bar {
+    background-color: rgba(240, 240, 240, 0.8); /* Light background */
+    color: #333; /* Dark text color */
+    border: 1px solid #ffffff; /* Subtle border */
+    padding: 6px 12px;
+    border-radius: 30px;
+    width: 250px;
+  }
+  
+  .search-bar::placeholder {
+    color: #999; /* Light placeholder color */
+  }
+  
+  .navbar i {
+    font-size: 1.5rem;
+    color: #fff; /* Icon color */
+    margin-left: 15px;
+  }
+  
+  .navbar i:hover {
+    color: #f6c63b; /* Hover color for icons */
+  }
+  

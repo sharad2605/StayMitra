@@ -1,0 +1,33 @@
+/* Footer background and text styles */
+.footer {
+    background-color: #1d2b3a; /* Deep blue background */
+    color: #e1e1e1; /* Light grey text */
+  }
+  
+  .footer h5 {
+    color: #f5b700; /* Bright yellow for headings */
+  }
+  
+  .footer ul li a {
+    color: #e1e1e1; /* Light grey text for links */
+  }
+  
+  .footer ul li a:hover {
+    color: #f5b700; /* Hover color for links */
+    text-decoration: underline;
+  }
+  
+  .footer p {
+    font-size: 14px;
+    color: #ccc;
+  }
+  
+  .footer p a {
+    color: #ccc;
+  }
+  
+  .footer p a:hover {
+    color: #fff;
+    text-decoration: underline;
+  }
+  

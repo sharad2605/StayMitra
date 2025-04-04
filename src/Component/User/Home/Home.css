@@ -1,0 +1,40 @@
+/* Slick Carousel Arrows */
+.slick-prev:before,
+.slick-next:before {
+  color: red !important; /* ✅ Arrow ka color red */
+  font-size: 28px; /* ✅ Arrow size bada */
+  opacity: 1; /* ✅ Clear dikhna chahiye */
+}
+
+/* Arrows ki background hatao aur size adjust karo */
+.slick-prev,
+.slick-next {
+  width: 40px;
+  height: 40px;
+  z-index: 1000;
+}
+
+/* Left Arrow Adjust */
+.slick-prev {
+  left: -50px !important; /* ✅ Left arrow thoda bahar */
+}
+
+/* Right Arrow Adjust */
+.slick-next {
+  right: -50px !important; /* ✅ Right arrow thoda bahar */
+}
+
+/* Category Card Styling */
+.category-card {
+  background: #03b1ae87;
+  border: 1px solid #980b0b;
+  border-radius: 8px;
+  padding: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Effect */
+.category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
