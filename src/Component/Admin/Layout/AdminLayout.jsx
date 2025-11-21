@@ -5,7 +5,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { useSelector } from 'react-redux';
 
 const AdminLayout = () => {
-  const isAdminAuthenticated = useSelector(state => state.AdminAuth.isAuthenticated);
+  const isAdminAuthenticated = useSelector(state => state.adminAuth.isAuthenticated);
 
   // ✅ Redirect to login if admin is not authenticated
   if (!isAdminAuthenticated) {

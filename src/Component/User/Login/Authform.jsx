@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap"; 
 import { useNavigate } from "react-router-dom";
-import { authActions } from "../../store/authSlice";
+import { authActions } from "../../Store/authSlice"; 
 import { useDispatch, useSelector } from "react-redux";
 
 const Authform = () => {
@@ -53,8 +53,9 @@ const Authform = () => {
         token: data.idToken, 
         email: data.email
       }));
-      
 
+      localStorage.setItem("token", data.idToken);  
+      localStorage.setItem("email", data.email);  
       localStorage.setItem("isLoggedIn", "true"); // Fixing refresh logout issue
 
       if (!isLogin) {

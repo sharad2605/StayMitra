@@ -28,6 +28,8 @@ const ManageCategories = () => {
     }
   };
 
+
+
   useEffect(() => {
     fetchCategories();
   }, []);
@@ -56,6 +58,25 @@ const ManageCategories = () => {
     }
   };
 
+  const deleteCategoryHandler = async (id) => {
+  const url = `https://staymitra-c6ae4-default-rtdb.firebaseio.com/categories/${id}.json`;
+
+  try {
+    const response = await fetch(url, {
+      method: "DELETE",
+    });
+
+    if (response.ok) {
+      dispatch(deleteCategory(id)); // Redux state se bhi hatao
+    } else {
+      console.error("❌ Failed to delete category from Firebase");
+    }
+  } catch (error) {
+    console.error("🔥 Error deleting category:", error);
+  }
+};
+
+
   return (
     <Card className="manage-categories">
       <Card.Header className="custom-header">Manage Categories</Card.Header>
@@ -74,7 +95,8 @@ const ManageCategories = () => {
           {categories.map((cat) => (
             <li key={cat.id}>
               {cat.name}  
-              <button  onClick={() => dispatch(deleteCategory(cat.id))} >Delete</button>
+              <button onClick={() => deleteCategoryHandler(cat.id)}>Delete</button>
+
             </li>
           ))}
         </ul>

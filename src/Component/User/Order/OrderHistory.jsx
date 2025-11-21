@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 const OrderHistory = () => {
-  const userEmail = useSelector((state) => state.auth.email);
+  const userEmail = useSelector((state) => state.auth.userEmail);
+  console.log("User Email:", userEmail); // ✅ Debugging ke liye
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true); // ✅ Boolean rakho
 

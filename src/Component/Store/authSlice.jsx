@@ -1,46 +1,40 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const token = localStorage.getItem("token") || null;
-const email = localStorage.getItem("email") || null;
-const name = localStorage.getItem("name") || null;
-const isLoggedIn = localStorage.getItem("isLoggedIn") === "true"; 
-
-const initialAuthState = {    
-    token: token,
-    isLoggedIn: isLoggedIn,
-    email: email,
-    name: name,
-};
-
 const authSlice = createSlice({
-    name: "authentication",
-    initialState: initialAuthState,    
-    reducers: {
-        login(state, action) {
-            const { token, email } = action.payload;
-            localStorage.setItem("token", token);
-            localStorage.setItem("email", email);
-            localStorage.setItem("name", name);
-            localStorage.setItem("isLoggedIn", "true"); // Fix refresh logout issue
-
-            state.token = token;
-            state.isLoggedIn = true;
-            state.email = email; 
-            state.name = name; 
-        },
-        logout(state) {
-            localStorage.removeItem("token");
-            localStorage.removeItem("email");
-            localStorage.removeItem("isLoggedIn");
-            localStorage.removeItem("name");
-
-            state.token = null;
-            state.isLoggedIn = false;
-            state.email = null;
-            state.name = null;
-        },
+  name: "auth",
+  initialState: {
+    isAuthenticated: false,
+    idToken: "",
+    userEmail: "",
+  },
+  reducers: {
+    login(state,action) {
+      const { token, email } = action.payload;
+      state.isAuthenticated = true;
+      state.idToken = token;
+      state.userEmail = email;
     },
+    logout(state) {
+      state.isAuthenticated = false;
+      state.idToken = "";
+      state.userEmail = null;
+      
+    },
+    setIdToken(state, action) {
+      state.idToken = action.payload;
+    },
+    setUserEmail(state, action) {
+      state.userEmail = action.payload;
+    },
+  },
 });
 
-export const authActions = authSlice.actions;
+export const {
+  login,
+  logout,
+  setIdToken,
+  setUserEmail,
+} = authSlice.actions;
+
 export default authSlice.reducer;
+export const authActions = authSlice.actions;

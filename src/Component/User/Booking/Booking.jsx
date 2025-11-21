@@ -4,13 +4,15 @@ import { Modal, Button, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 const Booking = ({ listing, onClose }) => {
-  const userEmail = useSelector((state) => state.auth.email); // ✅ Redux se email
+  const userEmail = useSelector((state) => state.auth.userEmail); // ✅ Redux se email
   const [checkIn, setCheckIn] = useState("");
   const [checkOut, setCheckOut] = useState("");
   const [guests, setGuests] = useState(1);
   const [userAddress, setUserAddress] = useState("");
-const token = useSelector((state) => state.auth.token);
+const token = useSelector((state) => state.auth.idToken);
 const navigate = useNavigate();
+const todayDate = new Date().toISOString().split("T")[0]; // e.g. "2025-07-15"
+
 
 const calculateTotalPrice = (checkIn, checkOut, pricePerNight, guests) => {
   const inDate = new Date(checkIn);
@@ -32,7 +34,7 @@ const calculateTotalPrice = (checkIn, checkOut, pricePerNight, guests) => {
         return;
       }
       console.log("Check-In:", checkIn);
-console.log("Check-Out:", checkOut);
+      console.log("Check-Out:", checkOut);
     const sanitizedEmail = userEmail.replace(/[@.]/g, ""); // ✅ Email sanitize
   
     const bookingData = {
@@ -71,6 +73,7 @@ console.log("Check-Out:", checkOut);
       if (!response.ok) throw new Error("Booking failed!");
   
       console.log("Booking Successful!");
+      alert("Booking Successful!");
     } catch (error) {
       console.error("Error booking:", error);
     }
@@ -86,12 +89,12 @@ console.log("Check-Out:", checkOut);
         <Form>
           <Form.Group>
             <Form.Label>Check-in Date:</Form.Label>
-            <Form.Control type="date" value={checkIn} onChange={(e) => setCheckIn(e.target.value)} />
+            <Form.Control type="date" value={checkIn} min={todayDate}  onChange={(e) => setCheckIn(e.target.value)} />
           </Form.Group>
 
           <Form.Group>
             <Form.Label>Check-out Date:</Form.Label>
-            <Form.Control type="date" value={checkOut} onChange={(e) => setCheckOut(e.target.value)} />
+            <Form.Control type="date" value={checkOut}  min={todayDate} onChange={(e) => setCheckOut(e.target.value)} />
           </Form.Group>
 
           <Form.Group>

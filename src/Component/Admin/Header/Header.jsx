@@ -10,7 +10,7 @@ const Header = () => {
   const handleLogout = () => {
     dispatch(adminAuthActions.logout()); // 🔹 Redux se logout
     localStorage.removeItem("adminToken"); // Specific key delete karein
-  localStorage.clear();
+    localStorage.clear();
     navigate("/admin/login"); // 🔹 Redirect to Login Page
   };
 
@@ -19,7 +19,7 @@ const Header = () => {
       <Container>
         <Navbar.Brand href="/admin/dashboard">Admin Panel</Navbar.Brand>
         <Nav className="ms-auto">
-          <Nav.Link href="/admin/settings">Settings</Nav.Link>
+          {/* <Nav.Link href="/admin/settings">Settings</Nav.Link> */}
           <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
         </Nav>
       </Container>

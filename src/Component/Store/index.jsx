@@ -7,7 +7,7 @@ import bookingReducer from './bookingSlice';
 
 const store = configureStore({
   reducer: {
-    AdminAuth: AdminAuthReducer,
+    adminAuth: AdminAuthReducer,
     categories:categoryReducer,
     listings: addListingReducer,
     auth:authReducer,

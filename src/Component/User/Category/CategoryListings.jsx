@@ -3,7 +3,11 @@ import { useParams } from "react-router-dom"; // ✅ Category URL se get karne k
 import "./CategoryListings.css";
 import Booking from "../Booking/Booking"
 import { useSelector } from "react-redux";
-
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick"; // For image slider
+import "bootstrap/dist/css/bootstrap.min.css"; // For Bootstrap styles
+import "bootstrap-icons/font/bootstrap-icons.css"; // For icons
 const CategoryListings = () => {
   const { categoryName } = useParams(); // ✅ URL se category lo
   const [listings, setListings] = useState([]);
@@ -135,12 +139,28 @@ const CategoryListings = () => {
                 {/* 🖼 Image */}
                 
                 {listing.images.length > 0 && (
+                <Slider
+                dots={true}
+                infinite={true}
+                speed={500}
+                slidesToShow={1}
+                slidesToScroll={1}
+                autoplay={true}
+                autoplaySpeed={3000}
+                arrows={false}
+              >
+              {listing.images.map((img, i) => (
+                <div key={i}>
                   <img
-                    src={listing.images[0]} 
-                    alt={listing.name}
+                    src={img}
+                    alt={`Image ${i + 1}`}
                     className="listing-image"
+                    style={{ width: "100%", height: "200px", objectFit: "cover" }}
                   />
-                )}
+            </div>
+          ))}
+        </Slider>
+      )}
 
                 {/* 📌 Details */}
                 <h4 className="fw-bold mt-3">{listing.placeName}</h4>

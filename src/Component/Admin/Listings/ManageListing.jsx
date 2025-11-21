@@ -172,6 +172,7 @@ const ManageListings = () => {
       description: formData.description,
       availability: formData.availability,
       images:formData.images, // Ensure images are correctly updated
+      createdAt: new Date().toISOString()
     };
   
     const url = `https://staymitra-c6ae4-default-rtdb.firebaseio.com/listings/${selectedListing.id}.json`;

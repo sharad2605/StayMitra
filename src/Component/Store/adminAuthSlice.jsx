@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const token = localStorage.getItem("adminToken");
 
 const adminAuthSlice = createSlice({
-  name: "AdminAuth",
+  name: "adminAuth",
   initialState: {
     isAuthenticated: !!token,
     token: token || null,
