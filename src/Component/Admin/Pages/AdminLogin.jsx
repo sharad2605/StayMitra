@@ -10,7 +10,7 @@ const AdminLogin = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const isAdminAuthenticated = useSelector(state => state.AdminAuth.isAuthenticated); // ✅ Fix: "adminAuth" ka sahi naam
+  const isAdminAuthenticated = useSelector(state => state.adminAuth.isAuthenticated); // ✅ Fix: "adminAuth" ka sahi naam
 
   // ✅ Fix: Agar already logged in hai to dashboard pe bhej do
   if (isAdminAuthenticated) {
